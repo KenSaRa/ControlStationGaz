@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "860369570156",
+    "firebase_url": "https://stationcarcontrol.firebaseio.com",
+    "project_id": "stationcarcontrol",
+    "storage_bucket": "stationcarcontrol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860369570156:android:35db2cd99edcd5de",
+        "android_client_info": {
+          "package_name": "com.kensara.stationcarcontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860369570156-mi1ue6v7i1guq7s2h7t4gf2ks22ff4ha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kensara.stationcarcontrol",
+            "certificate_hash": "e7a6d2cc8cb6ad24da257aa1e74e7a88f9bc8aa6"
+          }
+        },
+        {
+          "client_id": "860369570156-u89rftq5rtb6ksf79bst995kku254djc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Pn4Lapy3cm32fBtupZm15iQqmbkXn7s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860369570156-u89rftq5rtb6ksf79bst995kku254djc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
