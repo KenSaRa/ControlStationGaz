@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">StationCarControl</string>
+    <string name="username">Nom Utilisateur</string>
+    <string name="password">mot de passe</string>
+    <string name="login">Se connecter</string>
+    <string name="btn_connect">Connexion</string>
+    <string name="title_activity_super_viseur">SuperViseurActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_super_admin">SuperAdminActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".UtilisateurActivity" />
+        <activity
+            android:name=".SuperViseurActivity"
+            android:label="@string/title_activity_super_viseur"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SuperAdminActivity"
+            android:label="@string/title_activity_super_admin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
