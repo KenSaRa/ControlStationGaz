@@ -25,6 +25,10 @@
         <activity
             android:name=".SuperAdminActivity"
             android:label="@string/title_activity_super_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Fragments.CreateUserActivity"
+            android:label="@string/title_activity_create_user"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

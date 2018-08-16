@@ -10,11 +10,23 @@ import android.view.ViewGroup;
 
 import com.kensara.stationcarcontrol.R;
 
-public class TacheAdminFragment extends Fragment {
+public class TacheAdminFragment extends Fragment{
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tache_admin, parent, false);
+
+        @Nullable
+        @Override
+        public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup
+        container, @Nullable Bundle savedInstanceState){
+
+        View view = inflater.inflate(R.layout.frag_bienvenu_admin, container, false);
+
+       // view.findViewById(R.id.frag_add_depot_btn).setOnClickListener(this);
+
+        return view;
     }
+
+
+
+
+
 }
