@@ -8,4 +8,9 @@
     tools:context=".SuperAdminActivity"
     tools:showIn="@layout/app_bar_super_admin">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_admin"/>
+
 </android.support.constraint.ConstraintLayout>

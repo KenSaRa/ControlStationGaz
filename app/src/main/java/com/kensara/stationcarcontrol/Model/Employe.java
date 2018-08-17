@@ -32,4 +32,28 @@ public class Employe {
     public void setTypeEmploi(String typeEmploi) {
         this.typeEmploi = typeEmploi;
     }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public Pompe getIdPompe() {
+        return idPompe;
+    }
+
+    public void setIdPompe(Pompe idPompe) {
+        this.idPompe = idPompe;
+    }
 }

@@ -16,4 +16,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_create_user">CreateUserActivity</string>
+
+    <string-array name="type_employee">
+        <item>Employe</item>
+        <item>Superviseur</item>
+        <item>Admin</item>
+    </string-array>
+
+    <string-array name="pompes">
+        <item>Pompe #1</item>
+        <item>Pompe #2</item>
+        <item>Pompe #3</item>
+        <item>Pompe #4</item>
+        <item>Pompe #5</item>
+    </string-array>
 </resources>

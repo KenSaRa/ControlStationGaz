@@ -2,26 +2,25 @@ package com.kensara.stationcarcontrol.Model;
 
 public class Pompe {
     long idPompe;
-    String nomEmp;
-    String prenomEmp;
+    String nom;
     String adresse;
     double longitude;
     double latitude;
 
-    public String getNomEmp() {
-        return nomEmp;
+    public long getIdPompe() {
+        return idPompe;
     }
 
-    public void setNomEmp(String nomEmp) {
-        this.nomEmp = nomEmp;
+    public void setIdPompe(long idPompe) {
+        this.idPompe = idPompe;
     }
 
-    public String getPrenomEmp() {
-        return prenomEmp;
+    public String getNom() {
+        return nom;
     }
 
-    public void setPrenomEmp(String prenomEmp) {
-        this.prenomEmp = prenomEmp;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getAdresse() {
