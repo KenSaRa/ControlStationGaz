@@ -12,6 +12,10 @@ Les users Stories que nous devrions utilises sont:
 
 ** La conception et la réalisation de la base de données.
 
+NB. L'application a deux partie
+** Un administrateur qui va administrer le systeme en Backend et le cote Où le Supervissseur Va excercer son role.
+
+
 ** Conception et réalisation de l'API que l'application va utiliser.
 
 * [ ] Le superviseur peut entrer son nom d'utilisateur et son mot de passe. 
@@ -25,18 +29,27 @@ Les users Stories que nous devrions utilises sont:
     * [ ] Dépot de dépense.
     * [ ] Dépot de credit.
     * [ ] Dépot de carte de credit.
+	
+**Optionel**
 
 * [ ] Le superviseur pourrait avoir la liste des enregistrements .
    
     * [ ] Ajout des dépots.
     * [ ] Gestions des pompistes.
     * [ ] Gestions des vendeurs.
+	
+**Bonus**
+
+* [ ] L'administrateur peut l'ensemble des pompes du systeme via un Map.
 
 
 
 
+  First Git
   
-   
+  <img src='http://i.imgur.com/C:/Users/Ermano N. Joseph/AndroidStudioProjects/Projet/StationGif/stationFirstGif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 
   Copyright [05-08-18][JEAN LOUIS Ken Cherline, SUY  Rachele,DAVILMAR Samur-Ange ]
                       
