@@ -1,4 +1,4 @@
-package com.kensara.stationcarcontrol.Fragments;
+package com.kensara.stationcarcontrol.Fragments.superviseur;
 
 import android.content.Context;
 import android.net.Uri;
