@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.kensara.stationcarcontrol.R;
 import com.kensara.stationcarcontrol.UtilisateurActivity;
 
 public class Create_User_Fragment extends Fragment
@@ -37,7 +38,11 @@ public class Create_User_Fragment extends Fragment
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.create_user_fragment, container, false);
+
+        getActivity().setTitle("Create user");
+
+        return view;
     }
 
    // public void RegisterAcount() {

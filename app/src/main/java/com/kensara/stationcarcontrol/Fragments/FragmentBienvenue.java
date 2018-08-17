@@ -1,4 +1,4 @@
-package com.kensara.stationcarcontrol.Fragments.Administrateur;
+package com.kensara.stationcarcontrol.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 
 import com.kensara.stationcarcontrol.R;
 
-public class Fragment_List_Employe extends Fragment {
+public class FragmentBienvenue extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_employe_frag, container, false);
+        View view = inflater.inflate(R.layout.frag_bienvenu_admin, container, false);
 
         return view;
     }

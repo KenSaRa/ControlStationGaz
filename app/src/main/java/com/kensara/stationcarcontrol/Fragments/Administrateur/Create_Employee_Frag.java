@@ -43,6 +43,8 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.create_employee_frag, container, false);
 
+        getActivity().setTitle("Create employee");
+
         database = FirebaseDatabase.getInstance();
 
         et_nom = (EditText) view.findViewById(R.id.frag_emp_et_nom);

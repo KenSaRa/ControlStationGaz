@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Employee_Frag;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragment;
+import com.kensara.stationcarcontrol.Fragments.FragmentBienvenue;
 
 public class SuperAdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +39,7 @@ public class SuperAdminActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_admin, (Fragment) new Create_Employee_Frag())
+                .replace(R.id.frame_admin, (Fragment) new FragmentBienvenue())
                 .commit();
     }
 
@@ -80,7 +81,7 @@ public class SuperAdminActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment fragment = new Create_Employee_Frag();
+        Fragment fragment = new FragmentBienvenue();
 
         if (id == R.id.nav_add_pompiste){
             fragment = new Create_Employee_Frag();
