@@ -1,4 +1,4 @@
-package com.kensara.stationcarcontrol.Fragments;
+package com.kensara.stationcarcontrol.Fragments.Administrateur;
 
 
 import android.os.Bundle;
@@ -66,6 +66,6 @@ public class Create_User_Fragment extends Fragment
 
     @Override
     public void onClick(View view) {
-        
+
     }
 }

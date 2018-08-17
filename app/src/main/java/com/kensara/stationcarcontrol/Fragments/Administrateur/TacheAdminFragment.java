@@ -1,4 +1,4 @@
-package com.kensara.stationcarcontrol.Fragments;
+package com.kensara.stationcarcontrol.Fragments.Administrateur;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
