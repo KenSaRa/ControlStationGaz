@@ -47,7 +47,7 @@ NB. L'application a deux partie
 
   First Git
   
-  <img src='http://i.imgur.com/C:/Users/Ermano N. Joseph/AndroidStudioProjects/Projet/StationGif/stationFirstGif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+  <img src='stationFirstGif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 

@@ -1,8 +1,4 @@
-\
-        ]ackage com.kensara.stationcarcontrol;23
-5\
-.25
-1
+package com.kensara.stationcarcontrol;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
