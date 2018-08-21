@@ -19,7 +19,8 @@ import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragme
 import com.kensara.stationcarcontrol.Fragments.FragmentBienvenue;
 
 public class SuperAdminActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        Create_User_Fragment.CreateUserListenner{
     //comment
 
     @Override
@@ -50,7 +51,7 @@ public class SuperAdminActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
         }
     }
 
@@ -99,5 +100,10 @@ public class SuperAdminActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void userCreated() {
+
     }
 }

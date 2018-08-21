@@ -56,4 +56,9 @@ public class Employe {
     public void setIdPompe(Pompe idPompe) {
         this.idPompe = idPompe;
     }
+
+    @Override
+    public String toString() {
+        return nom + " " + prenom;
+    }
 }
