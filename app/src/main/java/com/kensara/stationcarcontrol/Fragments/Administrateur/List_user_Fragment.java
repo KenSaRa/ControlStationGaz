@@ -1,4 +1,6 @@
 package com.kensara.stationcarcontrol.Fragments.Administrateur;
 
-public class List_user_Fragment {
+import android.support.v4.app.Fragment;
+
+public class List_user_Fragment extends Fragment {
 }
