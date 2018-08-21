@@ -6,6 +6,7 @@ public class Rotation {
     private String heureDebut;
     private String heureFin;
     private String rotationDate;
+    Employe employe;
 
     public String getHeureDebut() {
         return heureDebut;
