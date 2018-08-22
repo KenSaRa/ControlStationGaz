@@ -19,19 +19,19 @@
         <item
             android:id="@+id/nav_add_pompiste"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Ajouter Pompe" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="liste Element">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_listeUser"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Liste User" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_listePompe"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Liste Pompe" />
         </menu>
     </item>
 

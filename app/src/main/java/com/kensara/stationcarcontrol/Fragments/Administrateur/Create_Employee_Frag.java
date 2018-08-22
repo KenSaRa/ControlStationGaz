@@ -91,8 +91,12 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError != null)
                     Toast.makeText(getContext(), "Employe non ajpute", Toast.LENGTH_LONG).show();
-                else
+                else{
+
                     Toast.makeText(getContext(), "Employe ajoute avec succes", Toast.LENGTH_LONG).show();
+                    CreateEmployeListener listener = (CreateEmployeListener) getActivity();
+                    listener.onCreateEmploye();
+                }
             }
         });
 
@@ -111,5 +115,13 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
                 break;
         }
         return true;
+    }
+
+    public interface CreateEmployeListener{
+
+        public  void onCreateEmploye();
+
+
+
     }
 }

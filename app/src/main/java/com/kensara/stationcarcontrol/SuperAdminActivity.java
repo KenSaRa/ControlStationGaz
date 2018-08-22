@@ -1,10 +1,7 @@
 package com.kensara.stationcarcontrol;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,11 +13,14 @@ import android.view.MenuItem;
 
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Employee_Frag;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragment;
-import com.kensara.stationcarcontrol.Fragments.FragmentBienvenue;
+import com.kensara.stationcarcontrol.Fragments.Administrateur.List_employe_Frag;
+import com.kensara.stationcarcontrol.Fragments.Administrateur.List_user_Fragment;
+import com.kensara.stationcarcontrol.Fragments.BienvenueFragment;
 
 public class SuperAdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        Create_User_Fragment.CreateUserListenner{
+        Create_User_Fragment.CreateUserListenner,
+        Create_Employee_Frag.CreateEmployeListener{
     //comment
 
     @Override
@@ -41,7 +41,7 @@ public class SuperAdminActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_admin, (Fragment) new FragmentBienvenue())
+                .replace(R.id.frame_admin, (Fragment) new BienvenueFragment())
                 .commit();
     }
 
@@ -83,7 +83,7 @@ public class SuperAdminActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment fragment = new FragmentBienvenue();
+        Fragment fragment = new BienvenueFragment();
 
         if (id == R.id.nav_add_pompiste){
             fragment = new Create_Employee_Frag();
@@ -104,6 +104,16 @@ public class SuperAdminActivity extends AppCompatActivity
 
     @Override
     public void userCreated() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new List_user_Fragment())
+                .commit();
 
+    }
+
+    @Override
+    public void onCreateEmploye() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new List_employe_Frag())
+                .commit();
     }
 }
