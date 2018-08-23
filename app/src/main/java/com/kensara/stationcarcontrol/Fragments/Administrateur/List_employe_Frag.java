@@ -102,8 +102,6 @@ public class List_employe_Frag extends Fragment{
         mRecycler.setLayoutManager(mManager);
         mRecycler.setAdapter(mAdapter);
 
-        Log.e("List pompes", "Nb : " + mAdapter.getItemCount());
-
         setHasOptionsMenu(true);
 
         return view;

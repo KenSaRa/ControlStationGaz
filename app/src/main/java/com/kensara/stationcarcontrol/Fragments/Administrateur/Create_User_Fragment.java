@@ -133,9 +133,10 @@ public class Create_User_Fragment extends Fragment
 
         pompes = new ArrayList<>();
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, pompes);
-        act_pompe.setAdapter(adapter);
 
         act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_user_act_pompe);
+        act_pompe.setAdapter(adapter);
+
         act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -153,6 +154,8 @@ public class Create_User_Fragment extends Fragment
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Log.e("CreatedUser", "Nb pompe : " + dataSnapshot.getChildrenCount());
+                        pompes.clear();
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
                             Pompe p = d.getValue(Pompe.class);
                             if (p != null) {
@@ -160,6 +163,8 @@ public class Create_User_Fragment extends Fragment
                             }
                         }
                         adapter.notifyDataSetChanged();
+                        Log.e("CreatedEmpl", "Nb pompe (Adapter) : " + adapter.getCount());
+                        Log.e("CreatedEmpl", "Nb pompe (Recycler->Adapter) : " + act_pompe.getAdapter().getCount());
                     }
 
                     @Override

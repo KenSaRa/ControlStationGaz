@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -82,6 +83,8 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Log.e("CreatedEmpl", "Nb pompe : " + dataSnapshot.getChildrenCount());
+                        pompes.clear();
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
                             Pompe p = d.getValue(Pompe.class);
                             if (p != null) {
@@ -89,6 +92,8 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
                             }
                         }
                         adapter.notifyDataSetChanged();
+                        Log.e("CreatedEmpl", "Nb pompe (Adapter) : " + adapter.getCount());
+                        Log.e("CreatedEmpl", "Nb pompe (Recycler->Adapter) : " + act_pompe.getAdapter().getCount());
                     }
 
                     @Override
