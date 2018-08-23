@@ -21,7 +21,7 @@ implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.create_user_fragment, container, false);
 
-        view.findViewById(R.id.frag_user_register).setOnClickListener(this);
+        //view.findViewById(R.id.frag_user_register).setOnClickListener(this);
 
         return view;
     }

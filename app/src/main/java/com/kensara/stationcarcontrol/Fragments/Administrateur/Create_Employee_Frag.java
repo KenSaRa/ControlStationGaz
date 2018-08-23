@@ -52,7 +52,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.create_employee_frag, container, false);
 
-        getActivity().setTitle("Create employee");
+        getActivity().setTitle("Employé");
 
         database = FirebaseDatabase.getInstance();
 
@@ -117,7 +117,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
 
         employe.setPompe(selectedPompe);
 
-        DatabaseReference refEmploye = database.getReference("Employee");
+        DatabaseReference refEmploye = database.getReference("Employes");
 
         if (key == null)
             key = refEmploye.push().getKey();

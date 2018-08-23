@@ -58,4 +58,9 @@ public class ProfilUser {
     public void setPompes(List<Pompe> pompes) {
         this.pompes = pompes;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

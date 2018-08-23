@@ -12,8 +12,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,6 +33,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,6 +43,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.kensara.stationcarcontrol.Model.Employe;
 import com.kensara.stationcarcontrol.Model.Pompe;
+import com.kensara.stationcarcontrol.Model.ProfilUser;
 import com.kensara.stationcarcontrol.Model.User;
 import com.kensara.stationcarcontrol.R;
 import com.kensara.stationcarcontrol.UtilisateurActivity;
@@ -61,13 +68,16 @@ public class Create_User_Fragment extends Fragment
     private ImageView imageView;
 
     private Uri filePath;
+    private Uri imageURL;
 
     private final int PICK_IMAGE_REQUEST = 71;
 
-    EditText et_username, et_password, et_email;
+    EditText et_name, et_password, et_email, et_tel;
+
+    AutoCompleteTextView act_pompe;
 
 
-    Spinner sp_emplole, sp_pompe;
+    Spinner sp_emplole;
 
     FirebaseAuth auth;
     FirebaseDatabase database;
@@ -78,12 +88,20 @@ public class Create_User_Fragment extends Fragment
         public void userCreated();
     }
 
+    ProfilUser profil;
+    String key = null;
+
+    int success_count = 0;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.create_user_fragment, container, false);
 
-        getActivity().setTitle("Create user");
+        getActivity().setTitle("Utilisateur");
+
+        profil = new ProfilUser();
 
         //instance of firebase
         database = FirebaseDatabase.getInstance();
@@ -92,18 +110,32 @@ public class Create_User_Fragment extends Fragment
         auth  =FirebaseAuth.getInstance();
 
 
+        et_name = (EditText) view.findViewById(R.id.frag_user_et_nom);
         et_password = (EditText) view.findViewById(R.id.frag_user_et_password);
         et_email = (EditText) view.findViewById(R.id.frag_user_et_email);
-        //image = (ImageView) view.findViewById(R.id.frag_emp_et_age);
+        et_tel = (EditText) view.findViewById(R.id.frag_user_et_tel);
 
-        sp_emplole = (Spinner) view.findViewById(R.id.frag_emp_spi_type);
+        sp_emplole = (Spinner) view.findViewById(R.id.frag_user_spi_role);
 
         //initialize the item to upload image
 
         btnChoose = (Button) view.findViewById(R.id.btnChoose);
-        btnRegister = (Button) view.findViewById(R.id.frag_user_register);
         btnUpload = (Button) view.findViewById(R.id.btnUpload);
         imageView = (ImageView) view.findViewById(R.id.frag_user_profile);
+
+        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_user_act_pompe);
+        act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                profil.getPompes().clear();
+                profil.getPompes().add((Pompe)adapterView.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
@@ -119,17 +151,6 @@ public class Create_User_Fragment extends Fragment
                 uploadImage();
             }
         });
-//recuperer l'email and call the register methode
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email = et_email.getText().toString();
-                password=et_password.getText().toString();
-                RegisterAcount();
-            }
-        });
-
-
 
         setHasOptionsMenu(true);
 
@@ -166,27 +187,85 @@ public class Create_User_Fragment extends Fragment
     //end
 
     public void RegisterAcount() {
-        auth.createUserWithEmailAndPassword(email, password)
-        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+        email = et_email.getText().toString();
+        password=et_password.getText().toString();
+
+        if (auth.getCurrentUser() == null){
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "createUserWithEmail:success");
+                                updateProfile();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(getContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+        }else
+            updateProfile();
+
+
+
+    }
+
+    public void updateProfile(){
+
+        success_count = 0;
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(et_name.getText().toString())
+                .setPhotoUri(imageURL)
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User profile updated.");
+                            ifAllRegistered();
+                        }
+                    }
+                });
+
+        key = user.getUid();
+
+        profil.setEmail(et_email.getText().toString());
+        profil.setName(et_name.getText().toString());
+        profil.setRole(sp_emplole.getSelectedItem().toString());
+
+        Employe employe = new Employe();
+        employe.setTypeEmploi(profil.getRole());
+        employe.setNom(profil.getName());
+        employe.setTelephone(et_tel.getText().toString());
+
+        if (profil.getPompes().size() > 0)
+            employe.setPompe(profil.getPompes().get(0));
+
+        Map<String, Object> child_updates = new HashMap<>();
+
+        child_updates.put("/Profiles/" + key, profil);
+        child_updates.put("/Employes/" +key, employe);
+
+        database.getReference().updateChildren(child_updates)
+        .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-
-
-                    // Sign in success, update UI with
-                    //
-                    // the signed-in user's information
-                    Log.d(TAG, "createUserWithEmail:success");
-                    FirebaseUser user = auth.getCurrentUser();
-                    // updateUI(user);
-                    RegisterSuccess();
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(getContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
-                    ////updateUI(null);
-
-                }
+            public void onSuccess(Void aVoid) {
+                ifAllRegistered();
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                e.printStackTrace();
             }
         });
 
@@ -208,6 +287,7 @@ public class Create_User_Fragment extends Fragment
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+                            imageURL = taskSnapshot.getDownloadUrl();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -228,10 +308,34 @@ public class Create_User_Fragment extends Fragment
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.save_cancel_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.save_action:
+                RegisterAcount();
+                break;
+            case R.id.cancel_action:
+                RegisterSuccess();
+                break;
+        }
+        return true;
+    }
+
 
     @Override
     public void onClick(View view) {
 
+    }
+
+    private void ifAllRegistered(){
+        success_count += 1;
+        if (success_count == 2)
+            RegisterSuccess();
     }
 
     private void RegisterSuccess(){
