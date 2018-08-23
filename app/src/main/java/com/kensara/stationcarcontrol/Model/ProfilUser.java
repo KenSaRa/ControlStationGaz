@@ -1,5 +1,6 @@
 package com.kensara.stationcarcontrol.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfilUser {
@@ -9,7 +10,7 @@ public class ProfilUser {
     String name;
     String email;
 
-    List<Pompe> pompes;
+    List<Pompe> pompes = new ArrayList<>();
 
     public String getUsername() {
         return username;

@@ -33,10 +33,7 @@ import java.util.Map;
 
 public class Create_Employee_Frag extends android.support.v4.app.Fragment {
 
-    EditText et_nom
-            , et_prenom
-            , et_age
-            , et_tel;
+    EditText et_nom, et_prenom, et_age, et_tel;
 
 
     AutoCompleteTextView act_pompe;
@@ -46,6 +43,9 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
     String key;
 
     Pompe selectedPompe;
+
+    List<Pompe> pompes;
+    ArrayAdapter<Pompe> adapter;
 
     @Nullable
     @Override
@@ -74,17 +74,17 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
             }
         });
 
-        final List<Pompe> pompes = new ArrayList<>();
-        final ArrayAdapter<Pompe> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, pompes);
+        pompes = new ArrayList<>();
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, pompes);
         act_pompe.setAdapter(adapter);
 
         database.getReference("Pompes")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot d: dataSnapshot.getChildren()){
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
                             Pompe p = d.getValue(Pompe.class);
-                            if (p != null){
+                            if (p != null) {
                                 pompes.add(p);
                             }
                         }
@@ -102,7 +102,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         return view;
     }
 
-    void saveEmploye(){
+    void saveEmploye() {
         Employe employe = new Employe();
 
         employe.setNom(et_nom.getText().toString());
@@ -130,7 +130,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError != null)
                     Toast.makeText(getContext(), "Employe non ajpute", Toast.LENGTH_LONG).show();
-                else{
+                else {
 
                     Toast.makeText(getContext(), "Employe ajoute avec succes", Toast.LENGTH_LONG).show();
                     CreateEmployeListener listener = (CreateEmployeListener) getActivity();
@@ -148,7 +148,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.save_action:
                 saveEmploye();
                 break;
@@ -156,10 +156,9 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         return true;
     }
 
-    public interface CreateEmployeListener{
+    public interface CreateEmployeListener {
 
-        public  void onCreateEmploye();
-
+        public void onCreateEmploye();
 
 
     }

@@ -49,9 +49,9 @@ public class List_employe_Frag extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_employe_frag, container, false);
 
-        getActivity().setTitle("Pompes");
+        getActivity().setTitle("Employes");
 
-        mRecycler = view.findViewById(R.id.list_pompe_recyclerview);
+        mRecycler = view.findViewById(R.id.list_employe_recyclerview);
         mRecycler.setHasFixedSize(true);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();

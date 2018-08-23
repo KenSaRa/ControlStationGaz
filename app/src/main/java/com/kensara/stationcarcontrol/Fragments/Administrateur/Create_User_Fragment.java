@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,9 +35,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -49,7 +52,9 @@ import com.kensara.stationcarcontrol.R;
 import com.kensara.stationcarcontrol.UtilisateurActivity;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -93,6 +98,9 @@ public class Create_User_Fragment extends Fragment
 
     int success_count = 0;
 
+    List<Pompe> pompes;
+    ArrayAdapter<Pompe> adapter;
+
 
     @Nullable
     @Override
@@ -107,7 +115,7 @@ public class Create_User_Fragment extends Fragment
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        auth  =FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
 
 
         et_name = (EditText) view.findViewById(R.id.frag_user_et_nom);
@@ -123,12 +131,16 @@ public class Create_User_Fragment extends Fragment
         btnUpload = (Button) view.findViewById(R.id.btnUpload);
         imageView = (ImageView) view.findViewById(R.id.frag_user_profile);
 
+        pompes = new ArrayList<>();
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, pompes);
+        act_pompe.setAdapter(adapter);
+
         act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_user_act_pompe);
         act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 profil.getPompes().clear();
-                profil.getPompes().add((Pompe)adapterView.getItemAtPosition(position));
+                profil.getPompes().add((Pompe) adapterView.getItemAtPosition(position));
             }
 
             @Override
@@ -136,6 +148,25 @@ public class Create_User_Fragment extends Fragment
 
             }
         });
+
+        database.getReference("Pompes")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            Pompe p = d.getValue(Pompe.class);
+                            if (p != null) {
+                                pompes.add(p);
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
@@ -189,9 +220,9 @@ public class Create_User_Fragment extends Fragment
     public void RegisterAcount() {
 
         email = et_email.getText().toString();
-        password=et_password.getText().toString();
+        password = et_password.getText().toString();
 
-        if (auth.getCurrentUser() == null){
+        if (auth.getCurrentUser() == null) {
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -207,14 +238,13 @@ public class Create_User_Fragment extends Fragment
                             }
                         }
                     });
-        }else
+        } else
             updateProfile();
-
 
 
     }
 
-    public void updateProfile(){
+    public void updateProfile() {
 
         success_count = 0;
 
@@ -253,34 +283,33 @@ public class Create_User_Fragment extends Fragment
         Map<String, Object> child_updates = new HashMap<>();
 
         child_updates.put("/Profiles/" + key, profil);
-        child_updates.put("/Employes/" +key, employe);
+        child_updates.put("/Employes/" + key, employe);
 
         database.getReference().updateChildren(child_updates)
-        .addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                ifAllRegistered();
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                e.printStackTrace();
-            }
-        });
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        ifAllRegistered();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.printStackTrace();
+                    }
+                });
 
     }
 
 
     private void uploadImage() {
 
-        if(filePath != null)
-        {
+        if (filePath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(getContext());
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -294,15 +323,15 @@ public class Create_User_Fragment extends Fragment
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             progressDialog.dismiss();
-                          //  Toast.makeText(.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //  Toast.makeText(.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
                                     .getTotalByteCount());
-                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
                         }
                     });
         }
@@ -332,13 +361,13 @@ public class Create_User_Fragment extends Fragment
 
     }
 
-    private void ifAllRegistered(){
+    private void ifAllRegistered() {
         success_count += 1;
         if (success_count == 2)
             RegisterSuccess();
     }
 
-    private void RegisterSuccess(){
+    private void RegisterSuccess() {
         CreateUserListenner listenner = (CreateUserListenner) getActivity();
         listenner.userCreated();
     }
