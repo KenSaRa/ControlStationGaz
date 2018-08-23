@@ -22,6 +22,7 @@
             android:id="@+id/nav_list_produits"
             android:icon="@drawable/ic_menu_manage"
             android:title="Produits" />
+
     </group>
 
     <item android:title="Paramtêtres">
