@@ -12,15 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Employee_Frag;
+import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Pompe_fragement;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragment;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.List_employe_Frag;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.List_user_Fragment;
+import com.kensara.stationcarcontrol.Fragments.Administrateur.Liste_Pompe_Fragment;
 import com.kensara.stationcarcontrol.Fragments.BienvenueFragment;
 
 public class SuperAdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
+        Liste_Pompe_Fragment.ListPompeListener,
         Create_User_Fragment.CreateUserListenner,
-        Create_Employee_Frag.CreateEmployeListener{
+        Create_Employee_Frag.CreateEmployeListener {
     //comment
 
     @Override
@@ -41,7 +44,7 @@ public class SuperAdminActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_admin, (Fragment) new BienvenueFragment())
+                .replace(R.id.frame_admin, (Fragment) new Liste_Pompe_Fragment())
                 .commit();
     }
 
@@ -83,14 +86,25 @@ public class SuperAdminActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment fragment = new BienvenueFragment();
+        Fragment fragment = new Liste_Pompe_Fragment();
 
-        if (id == R.id.nav_add_pompiste){
-            fragment = new Create_Employee_Frag();
-        }else if (id == R.id.nav_create_User){
-            fragment = new Create_User_Fragment();
+        switch (id) {
+            case R.id.nav_list_user:
+                fragment = new List_user_Fragment();
+                break;
+            case R.id.nav_list_pompe:
+                fragment = new Liste_Pompe_Fragment();
+                break;
+            case R.id.nav_list_Employe:
+                fragment = new List_employe_Frag();
+                break;
+            case R.id.nav_list_produits:
+
+                break;
+            default:
+                fragment = new Liste_Pompe_Fragment();
+                break;
         }
-
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_admin, fragment)
@@ -114,6 +128,13 @@ public class SuperAdminActivity extends AppCompatActivity
     public void onCreateEmploye() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_admin, (Fragment) new List_employe_Frag())
+                .commit();
+    }
+
+    @Override
+    public void addPompe() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new Create_Pompe_fragement())
                 .commit();
     }
 }

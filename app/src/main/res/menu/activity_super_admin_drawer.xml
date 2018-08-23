@@ -5,33 +5,31 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_create_User"
+            android:id="@+id/nav_list_user"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Ajouter Superviseur" />
+            android:title="Utilisateurs" />
         <item
-            android:id="@+id/nav_add_pompe"
+            android:id="@+id/nav_list_pompe"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Ajouter Pompe" />
+            android:title="Pompes" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_add_pompiste"
+            android:id="@+id/nav_list_Employe"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Ajouter Pompe" />
+            android:title="Employés" />
+
+        <item
+            android:id="@+id/nav_list_produits"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Produits" />
     </group>
 
-    <item android:title="liste Element">
+    <item android:title="Paramtêtres">
         <menu>
             <item
-                android:id="@+id/nav_listeUser"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Liste User" />
-            <item
-                android:id="@+id/nav_listePompe"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Liste Pompe" />
+                android:title="Logout" />
         </menu>
     </item>
 
