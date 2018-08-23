@@ -62,7 +62,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         et_tel = (EditText) view.findViewById(R.id.frag_emp_et_tel);
         et_age = (EditText) view.findViewById(R.id.frag_emp_et_age);
 
-        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_emp_act_pompe);
+        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_emp_spi_pompe);
         act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
