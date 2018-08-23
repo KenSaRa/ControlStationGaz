@@ -48,7 +48,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         database = FirebaseDatabase.getInstance();
 
         et_nom = (EditText) view.findViewById(R.id.frag_emp_et_nom);
-        et_prenom = (EditText) view.findViewById(R.id.frag_emp_et_prenom);
+        et_prenom = (EditText) view.findViewById(R.id.frag_prenom);
         et_tel = (EditText) view.findViewById(R.id.frag_emp_et_tel);
         et_age = (EditText) view.findViewById(R.id.frag_emp_et_age);
 
