@@ -14,8 +14,7 @@ import com.kensara.stationcarcontrol.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AjouterVenteActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener, AdapterView.OnItemSelectedListener {
-
+public class AjouterVenteActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +28,11 @@ public class AjouterVenteActivity extends AppCompatActivity implements AdapterVi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AjouterProduitActivity.class));
+                startActivity(new Intent(getApplicationContext(), AjouterProduitActivity.class));
             }
         });
 
-        //Spinner of product
+   /*     //Spinner of product
         Spinner spinner = (Spinner) findViewById(R.id.etTypeProduit);
         spinner.setOnItemSelectedListener(this);
 
@@ -96,5 +95,6 @@ public class AjouterVenteActivity extends AppCompatActivity implements AdapterVi
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }*/
     }
 }

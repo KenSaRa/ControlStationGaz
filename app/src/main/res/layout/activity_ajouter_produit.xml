@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#11000000"
     android:layout_height="match_parent"
     tools:context=".Codepath.AjouterProduitActivity">
 
@@ -43,7 +42,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/etNomProduit"
-            android:hint="Type produit"/>
+            android:hint="Description"/>
 
         <Spinner
             android:id="@+id/etTypeProduit"
@@ -52,6 +51,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/spi"
+            android:entries="@array/typeGaz"
             android:layout_below="@+id/etDescProduit"
             android:hint="Description"/>
 

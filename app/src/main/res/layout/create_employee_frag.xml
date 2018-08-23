@@ -24,16 +24,18 @@
     <EditText
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:inputType="textPersonName"
         android:hint="Prenom"
         android:layout_margin="5dp"
+        android:background="@drawable/editext"
        android:layout_below="@+id/frag_emp_et_nom"
         android:id="@+id/frag_prenom"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
         android:inputType="phone"
         android:hint="Telephone"
         android:layout_margin="5dp"
@@ -44,7 +46,8 @@
     <EditText
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
         android:inputType="number"
         android:hint="Âge"
         android:layout_margin="5dp"
@@ -53,9 +56,11 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:id="@+id/frag_emp_spi_type"
         android:entries="@array/type_employee"
+        android:layout_margin="5dp"
+        android:background="@drawable/spi"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/frag_emp_et_age"/>
 
@@ -70,6 +75,19 @@
         android:id="@+id/frag_emp_spi_pompe"
         android:layout_below="@+id/frag_emp_spi_type"/>
 
+
+    <Button
+        android:id="@+id/btnVente"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button"
+        android:layout_marginRight="10dp"
+        android:hint="Create"
+        android:layout_below="@+id/frag_emp_spi_pompe"
+        android:textColorHint="#000"
+        android:textSize="25dp"/>
 
 </RelativeLayout>
 

@@ -20,13 +20,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/btnChoose"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button"
                 android:text="Choose" />
 
             <Button
@@ -34,38 +37,33 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/button"
                 android:text="Upload" />
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nom" />
+
 
         <EditText
             android:id="@+id/frag_user_et_nom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:hint="Nom"
             android:layout_marginBottom="5dp"
             android:inputType="textEmailAddress" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Téléphone" />
 
         <EditText
             android:id="@+id/frag_user_et_tel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:hint="Téléphone"
             android:layout_marginBottom="5dp"
             android:inputType="phone" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Role" />
 
         <Spinner
             android:id="@+id/frag_user_spi_role"
@@ -74,10 +72,7 @@
             android:layout_marginBottom="5dp"
             android:entries="@array/type_employee" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pompes"/>
+
 
         <AutoCompleteTextView
             android:layout_width="match_parent"
@@ -86,27 +81,24 @@
             android:id="@+id/frag_user_act_pompe"/>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="email" />
 
         <EditText
             android:id="@+id/frag_user_et_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:hint="Email"
             android:layout_marginBottom="5dp"
             android:inputType="textEmailAddress" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password" />
+
 
         <EditText
             android:id="@+id/frag_user_et_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:hint="Mot de passe"
             android:layout_marginBottom="5dp"
             android:inputType="textPassword" />
 

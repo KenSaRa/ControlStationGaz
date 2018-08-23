@@ -350,9 +350,9 @@ public class Create_User_Fragment extends Fragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.save_action:
+           /* case R.id.save_action:
                 RegisterAcount();
-                break;
+                break;*/
             case R.id.cancel_action:
                 RegisterSuccess();
                 break;

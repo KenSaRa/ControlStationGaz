@@ -23,6 +23,16 @@
         <item>Superviseur</item>
     </string-array>
 
+    <string-array name="typeGaz">
+        <item>Diesel</item>
+        <item>Gazoline</item>
+    </string-array>
+
+    <string-array name="paiement">
+        <item>Mon Cash</item>
+        <item>Cash</item>
+    </string-array>
+
     <string-array name="pompes">
         <item>Pompe #1</item>
         <item>Pompe #2</item>

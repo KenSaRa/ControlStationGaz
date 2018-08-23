@@ -151,7 +151,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         inflater.inflate(R.menu.save_cancel_menu, menu);
     }
 
-    @Override
+  /*  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_action:
@@ -159,7 +159,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
                 break;
         }
         return true;
-    }
+    }*/
 
     public interface CreateEmployeListener {
 
