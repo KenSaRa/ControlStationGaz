@@ -2,47 +2,78 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#11000000">
+
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nom Pompe" />
+        android:text="Create Pompe"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        />
+
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:id="@+id/tvNomPompe"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Nom pompe"
+        android:background="@drawable/editext"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adresse"/>
 
     <EditText
+        android:id="@+id/tvAdressePompe"
         android:layout_marginBottom="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Longitude"/>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
+        android:hint="Adresse"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp" />
+
 
     <EditText
+        android:id="@+id/tvLontitudePompe"
         android:layout_marginBottom="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:inputType="numberDecimal"/>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:inputType="numberDecimal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/editext"
+        android:hint="Longitude"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Latitude"/>
 
     <EditText
+        android:id="@+id/tvLatitudePompe"
         android:layout_marginBottom="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:inputType="numberDecimal"/>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
+        android:inputType="numberDecimal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:hint="Latitude"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button"
+        android:layout_marginRight="10dp"
+        android:hint="Create"
+        android:textColorHint="#000"
+        android:textSize="25dp"/>
 
 
 

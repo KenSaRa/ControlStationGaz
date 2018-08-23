@@ -58,11 +58,11 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         database = FirebaseDatabase.getInstance();
 
         et_nom = (EditText) view.findViewById(R.id.frag_emp_et_nom);
-        et_prenom = (EditText) view.findViewById(R.id.frag_emp_et_prenom);
+        et_prenom = (EditText) view.findViewById(R.id.frag_prenom);
         et_tel = (EditText) view.findViewById(R.id.frag_emp_et_tel);
         et_age = (EditText) view.findViewById(R.id.frag_emp_et_age);
 
-        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_emp_act_pompe);
+        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_emp_spi_pompe);
         act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -151,7 +151,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         inflater.inflate(R.menu.save_cancel_menu, menu);
     }
 
-    @Override
+  /*  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_action:
@@ -159,7 +159,7 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
                 break;
         }
         return true;
-    }
+    }*/
 
     public interface CreateEmployeListener {
 

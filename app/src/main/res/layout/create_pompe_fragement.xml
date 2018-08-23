@@ -1,80 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#01000000">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nom Pompe"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
+
+
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:inputType="text"
-            android:id="@+id/frag_pompe_et_nom"/>
+            android:hint="Nom Pompe"
+            android:background="@drawable/editext"
+            android:id="@+id/etNom"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="longitude"/>
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/editext"
             android:inputType="numberDecimal"
-            android:id="@+id/frag_pompe_et_longitue"/>
+            android:hint="Longitude"
+            android:layout_below="@+id/etNom"
+            android:id="@+id/etLontitude"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="latitude"/>
+
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/editext"
             android:inputType="numberDecimal"
-            android:id="@+id/frag_pompe_et_latitude"/>
+            android:hint="Latitude"
+           android:layout_below="@+id/etLontitude"
+            android:id="@+id/etLatitude"
+            tools:ignore="UnknownId" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pays"/>
+
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/editext"
             android:inputType="text"
-            android:id="@+id/frag_pompe_et_pays"/>
+            android:hint="Pays"
+            android:layout_below="@+id/etLatitude"
+            android:id="@+id/etPays"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ville"/>
+
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/editext"
             android:inputType="text"
-            android:id="@+id/frag_pompe_et_ville"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adresse"/>
+            android:hint="Ville"
+            android:layout_below="@+id/etPays"
+            android:id="@+id/etVille"/>
+
         <EditText
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/editext"
             android:inputType="text"
-            android:id="@+id/frag_pompe_et_Adresse"/>
-
+            android:hint="Adresse"
+            android:layout_below="@+id/etVille"
+            android:id="@+id/etAdresse"/>
 
 
         <Button
+            android:id="@+id/frag_btnSave"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/frag_btnSave"/>
+            android:layout_height="60dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:layout_marginRight="10dp"
+            android:hint="Ajouter"
+            android:layout_below="@+id/etAdresse"
+            android:textColorHint="#000"
+            android:textSize="25dp"/>
+
+
+    </RelativeLayout>
 
     </LinearLayout>

@@ -2,21 +2,48 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#01000000">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pompe name"
-        android:textColor="#000"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:id="@+id/item_nom"/>
+        android:layout_height="90dp"
+        android:background="@drawable/editext"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
 
-    <TextView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pompe name"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:id="@+id/item_nom"/>
+
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Superviseur"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/item_nom"
         android:id="@+id/item_details"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adresse"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/item_details"
+            android:id="@+id/etAdresse"/>
+    </RelativeLayout>
+
+
 
 </LinearLayout>

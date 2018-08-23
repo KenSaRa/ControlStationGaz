@@ -47,12 +47,12 @@ public class Create_Pompe_fragement extends Fragment {
 
         //recupere valeur
 
-        et_nomPompe = (EditText) view.findViewById(R.id.frag_pompe_et_nom);
-        et_longitude = (EditText) view.findViewById(R.id.frag_pompe_et_longitue);
-        et_latitude = (EditText) view.findViewById(R.id.frag_pompe_et_latitude);
-        et_pays = (EditText) view.findViewById(R.id.frag_pompe_et_pays);
-        et_ville = (EditText) view.findViewById(R.id.frag_pompe_et_ville);
-        et_adresse = (EditText) view.findViewById(R.id.frag_pompe_et_Adresse);
+        et_nomPompe = (EditText) view.findViewById(R.id.etNom);
+        et_longitude = (EditText) view.findViewById(R.id.etLontitude);
+        et_latitude = (EditText) view.findViewById(R.id.etLatitude);
+        et_pays = (EditText) view.findViewById(R.id.etPays);
+        et_ville = (EditText) view.findViewById(R.id.etVille);
+        et_adresse = (EditText) view.findViewById(R.id.etAdresse);
 
 
         setHasOptionsMenu(true);
@@ -114,7 +114,7 @@ public class Create_Pompe_fragement extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.save_cancel_menu, menu);
     }
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -123,7 +123,7 @@ public class Create_Pompe_fragement extends Fragment {
                 break;
         }
         return true;
-    }
+    }*/
 
     public interface CreatePompeListener{
         public void onPompeCreated();

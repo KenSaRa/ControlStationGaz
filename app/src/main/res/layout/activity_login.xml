@@ -9,37 +9,62 @@
 
     <TextView
         android:id="@+id/tvlogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login" />
+        android:text="@string/login"
+        android:layout_marginTop="50dp"
+        android:gravity="center" />
+
 
     <EditText
         android:id="@+id/edt_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:ems="10"
+        android:background="@drawable/editext"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
         android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edt_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:ems="10"
+        android:background="@drawable/editext"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:hint="@string/password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
-    <TextView
-        android:id="@+id/tvError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
 
     <Button
         android:id="@+id/btn_connexion"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_connect" />
+        android:text="@string/btn_connect"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:background="#FF8000"
+       android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"/>
+
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="end"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        />
 
 </LinearLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">StationCarControl</string>
     <string name="username">Nom Utilisateur</string>
     <string name="password">mot de passe</string>
-    <string name="login">Se connecter</string>
+    <string name="login">Logo</string>
     <string name="btn_connect">Connexion</string>
     <string name="title_activity_super_viseur">SuperViseurActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -21,6 +21,16 @@
     <string-array name="type_employee">
         <item>Admin</item>
         <item>Superviseur</item>
+    </string-array>
+
+    <string-array name="typeGaz">
+        <item>Diesel</item>
+        <item>Gazoline</item>
+    </string-array>
+
+    <string-array name="paiement">
+        <item>Mon Cash</item>
+        <item>Cash</item>
     </string-array>
 
     <string-array name="pompes">

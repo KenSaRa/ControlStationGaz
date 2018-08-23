@@ -61,10 +61,10 @@ implements View.OnClickListener {
                 String password = edt_password.getText().toString();
 
                 if (email.length() == 0)
-                    edt_email.setError("E-mail error");
+                    edt_email.setError("Email empty");
 
                 if (password.length() == 0)
-                    edt_password.setError("Password ERROR");
+                    edt_password.setError("Password empty");
 
                 if (email.length() > 0 && password.length() > 0){
                     auth.signInWithEmailAndPassword(email, password)

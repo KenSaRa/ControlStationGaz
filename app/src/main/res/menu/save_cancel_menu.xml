@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
+ <!--   <item
         android:title="Sauvegarder"
         app:showAsAction="always"
         android:id="@+id/save_action"/>
@@ -11,5 +11,5 @@
         android:title="Annuler"
         app:showAsAction="never"
         android:id="@+id/cancel_action"/>
-
+-->
 </menu>

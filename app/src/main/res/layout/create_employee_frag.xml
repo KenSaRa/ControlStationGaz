@@ -4,60 +4,91 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nom"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp">
+
+
     <EditText
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
+        android:inputType="textPersonName"
+        android:hint="Nom"
+        android:layout_margin="5dp"
         android:id="@+id/frag_emp_et_nom"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Prenom"/>
-    <EditText
-        android:layout_marginBottom="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:id="@+id/frag_emp_et_prenom"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Telephone"/>
     <EditText
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:inputType="textPersonName"
+        android:hint="Prenom"
+        android:layout_margin="5dp"
+        android:background="@drawable/editext"
+       android:layout_below="@+id/frag_emp_et_nom"
+        android:id="@+id/frag_prenom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
         android:inputType="phone"
+        android:hint="Telephone"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/frag_prenom"
         android:id="@+id/frag_emp_et_tel"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Age"/>
+
     <EditText
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/editext"
         android:inputType="number"
+        android:hint="Âge"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/frag_emp_et_tel"
         android:id="@+id/frag_emp_et_age"/>
 
-
-    <TextView
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="# Pompe"/>
+        android:layout_height="60dp"
+        android:id="@+id/frag_emp_spi_type"
+        android:entries="@array/type_employee"
+        android:layout_margin="5dp"
+        android:background="@drawable/spi"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/frag_emp_et_age"/>
+
+
+
     <AutoCompleteTextView
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/pompes"
-        android:id="@+id/frag_emp_act_pompe"/>
+        android:layout_marginTop="10dp"
+        android:id="@+id/frag_emp_spi_pompe"
+        android:layout_below="@+id/frag_emp_spi_type"/>
+
+
+    <Button
+        android:id="@+id/btnVente"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button"
+        android:layout_marginRight="10dp"
+        android:hint="Create"
+        android:layout_below="@+id/frag_emp_spi_pompe"
+        android:textColorHint="#000"
+        android:textSize="25dp"/>
+
+</RelativeLayout>
 
 </LinearLayout>
