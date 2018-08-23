@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.kensara.stationcarcontrol.Model.ProfilUser;
 import com.kensara.stationcarcontrol.Model.Rotation;
 import com.kensara.stationcarcontrol.Model.User;
 
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mDatabase = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() == null){
@@ -83,7 +87,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void superAdminActivity(){
-        Intent intent = new Intent(this, SuperAdminActivity.class);
-        startActivityForResult(intent, SUPER_ACT);
+
+        mDatabase.getReference("/Profiles/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        ProfilUser profilUser = dataSnapshot.getValue(ProfilUser.class);
+                        if(profilUser != null){
+                            if(profilUser.getRole().equals("Admin")){
+                                Intent intent = new Intent(MainActivity.this, SuperAdminActivity.class);
+                                startActivityForResult(intent, SUPER_ACT);
+                            }else{
+                                Intent intent = new Intent(MainActivity.this, SuperViseurActivity.class);
+                                startActivityForResult(intent, SUPER_ACT);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
     }
 }

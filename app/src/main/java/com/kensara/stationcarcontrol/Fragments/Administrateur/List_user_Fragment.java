@@ -63,7 +63,7 @@ public class List_user_Fragment extends Fragment  {
 
         getActivity().setTitle("Utilisateurs");
 
-        mRecycler = view.findViewById(R.id.list_employe_recyclerview);
+        mRecycler = view.findViewById(R.id.list_user_recyclerview);
         mRecycler.setHasFixedSize(true);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();

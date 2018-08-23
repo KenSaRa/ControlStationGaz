@@ -163,8 +163,8 @@ public class Create_User_Fragment extends Fragment
                             }
                         }
                         adapter.notifyDataSetChanged();
-                        Log.e("CreatedEmpl", "Nb pompe (Adapter) : " + adapter.getCount());
-                        Log.e("CreatedEmpl", "Nb pompe (Recycler->Adapter) : " + act_pompe.getAdapter().getCount());
+                        Log.e("CreatedUser", "Nb pompe (Adapter) : " + adapter.getCount());
+                        Log.e("CreatedUser", "Nb pompe (Recycler->Adapter) : " + act_pompe.getAdapter().getCount());
                     }
 
                     @Override
