@@ -11,9 +11,7 @@
         android:id="@+id/tvlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="96dp" />
+        android:text="@string/login" />
 
     <EditText
         android:id="@+id/edt_username"
@@ -22,9 +20,7 @@
         android:ems="10"
         android:hint="@string/username"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="216dp" />
+        android:text="Name" />
 
     <EditText
         android:id="@+id/edt_password"
@@ -32,23 +28,18 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="304dp" />
+        android:inputType="textPassword"/>
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="430dp" />
+        android:text="" />
 
     <Button
         android:id="@+id/btn_connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_connect"
-        tools:layout_editor_absoluteX="188dp"
-        tools:layout_editor_absoluteY="400dp" />
+        android:text="@string/btn_connect" />
+
 </LinearLayout>
