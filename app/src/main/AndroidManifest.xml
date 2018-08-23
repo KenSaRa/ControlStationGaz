@@ -12,11 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".UtilisateurActivity" />
@@ -28,7 +23,16 @@
             android:name=".SuperAdminActivity"
             android:label="@string/title_activity_super_admin"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Codepath.AjouterVenteActivity" />
+
+
+        <activity android:name=".Codepath.AjouterVenteActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".Codepath.AjouterProduitActivity" />
         <activity android:name=".Codepath.ControlePompisteActivity"></activity>
     </application>

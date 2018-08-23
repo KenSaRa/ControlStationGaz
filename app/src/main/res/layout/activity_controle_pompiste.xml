@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#11000000"
     tools:context=".Codepath.ControlePompisteActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Controle pompiste"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorPrimary"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp">
+
+
+
+
+        <EditText
+            android:id="@+id/etNomProduit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Date"/>
+
+        <EditText
+            android:id="@+id/etDescProduit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/etNomProduit"
+            android:hint="Arrivée"/>
+
+        <EditText
+            android:id="@+id/etTypeProduit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/editext"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/etDescProduit"
+            android:hint="Depart"/>
+
+        <Button
+            android:id="@+id/btnPompiste"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:layout_marginRight="10dp"
+            android:hint="Ajouter"
+            android:layout_below="@+id/etTypeProduit"
+            android:textColorHint="#000"
+            android:textSize="25dp"/>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

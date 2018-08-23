@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#26000000"
+    android:background="#11000000"
     tools:context=".Codepath.AjouterVenteActivity">
 
 
@@ -50,7 +50,7 @@
             android:id="@+id/etDescProduit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/editext"
+            android:background="@drawable/spinner"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -58,13 +58,14 @@
             android:hint="Description"/>
 
         <Button
+            android:id="@+id/btnVente"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/button"
             android:layout_marginRight="10dp"
-            android:hint="Create"
+            android:hint="Ajouter"
             android:layout_below="@+id/etDescProduit"
             android:textColorHint="#000"
             android:textSize="25dp"/>
