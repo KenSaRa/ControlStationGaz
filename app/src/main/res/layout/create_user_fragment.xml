@@ -68,8 +68,9 @@
         <Spinner
             android:id="@+id/frag_user_spi_role"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="5dp"
+            android:background="@drawable/spi"
             android:entries="@array/type_employee" />
 
 

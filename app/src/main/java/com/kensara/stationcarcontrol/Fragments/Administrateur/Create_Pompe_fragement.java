@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -54,6 +55,7 @@ public class Create_Pompe_fragement extends Fragment {
         et_ville = (EditText) view.findViewById(R.id.etVille);
         et_adresse = (EditText) view.findViewById(R.id.etAdresse);
 
+        Button button = view.findViewById(R.id.frag_btnPompe);
 
         setHasOptionsMenu(true);
 

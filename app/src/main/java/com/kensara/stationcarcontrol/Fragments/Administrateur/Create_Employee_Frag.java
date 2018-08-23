@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -56,6 +57,8 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         getActivity().setTitle("Employé");
 
         database = FirebaseDatabase.getInstance();
+
+        Button button = view.findViewById(R.id.btnEmployé);
 
         et_nom = (EditText) view.findViewById(R.id.frag_emp_et_nom);
         et_prenom = (EditText) view.findViewById(R.id.frag_prenom);

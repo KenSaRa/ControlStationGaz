@@ -1,5 +1,6 @@
 package com.kensara.stationcarcontrol;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.kensara.stationcarcontrol.Codepath.AjouterProduitActivity;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Employee_Frag;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Pompe_fragement;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragment;
@@ -103,7 +105,7 @@ public class SuperAdminActivity extends AppCompatActivity
                 fragment = new List_employe_Frag();
                 break;
             case R.id.nav_list_produits:
-
+                startActivity(new Intent(getApplicationContext(),AjouterProduitActivity.class));
                 break;
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
