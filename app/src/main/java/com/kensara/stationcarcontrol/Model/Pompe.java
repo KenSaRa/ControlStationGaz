@@ -1,5 +1,7 @@
 package com.kensara.stationcarcontrol.Model;
 
+import java.util.List;
+
 public class Pompe {
     String nom;
     String adresse;
@@ -7,6 +9,9 @@ public class Pompe {
     String pays;
     double longitude;
     double latitude;
+
+    List<Employe> employes;
+    List<Produit> produits;
 
     public String getNom() {
         return nom;
@@ -54,5 +59,13 @@ public class Pompe {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    public List<Employe> getEmployes() {
+        return employes;
+    }
+
+    public void setEmployes(List<Employe> employes) {
+        this.employes = employes;
     }
 }

@@ -1,10 +1,15 @@
 package com.kensara.stationcarcontrol.Model;
 
+import java.util.List;
+
 public class ProfilUser {
     String username;
     String role;
-    String dateCreated;
-    String createdBy;
+    String type;
+    String name;
+    String email;
+
+    List<Pompe> pompes;
 
     public String getUsername() {
         return username;
@@ -22,19 +27,35 @@ public class ProfilUser {
         this.role = role;
     }
 
-    public String getDateCreated() {
-        return dateCreated;
+    public String getType() {
+        return type;
     }
 
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getName() {
+        return name;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Pompe> getPompes() {
+        return pompes;
+    }
+
+    public void setPompes(List<Pompe> pompes) {
+        this.pompes = pompes;
     }
 }

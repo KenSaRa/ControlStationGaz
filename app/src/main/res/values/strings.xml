@@ -19,9 +19,8 @@
     <string name="title_activity_create_user">CreateUserActivity</string>
 
     <string-array name="type_employee">
-        <item>Employe</item>
-        <item>Superviseur</item>
         <item>Admin</item>
+        <item>Superviseur</item>
     </string-array>
 
     <string-array name="pompes">

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,7 +26,7 @@ import org.w3c.dom.Text;
 
 public class Liste_Pompe_Fragment extends Fragment {
 
-    public class PompeViewHolder extends RecyclerView.ViewHolder{
+    public static class PompeViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tv_nom_pompe;
         public TextView tv_superviseur;
@@ -33,13 +34,8 @@ public class Liste_Pompe_Fragment extends Fragment {
         public PompeViewHolder(View itemView) {
             super(itemView);
 
-            tv_nom_pompe = itemView.findViewById(R.id.item_pompe_nom);
-            tv_superviseur = itemView.findViewById(R.id.item_pompe_details);
-        }
-
-        public void bindPomp(Pompe pompe, View.OnClickListener startClickListener){
-            tv_nom_pompe.setText(pompe.getNom());
-            tv_superviseur.setText(pompe.getAdresse());
+            tv_nom_pompe = itemView.findViewById(R.id.item_nom);
+            tv_superviseur = itemView.findViewById(R.id.item_details);
         }
     }
 
@@ -60,23 +56,24 @@ public class Liste_Pompe_Fragment extends Fragment {
         mRecycler = view.findViewById(R.id.list_pompe_recyclerview);
         mRecycler.setHasFixedSize(true);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("/Pompes/");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // Set up Layout Manager, reverse layout
         mManager = new LinearLayoutManager(getActivity());
-        mManager.setReverseLayout(true);
-        mManager.setStackFromEnd(true);
+        /*mManager.setReverseLayout(true);
+        mManager.setStackFromEnd(true);*/
         mRecycler.setLayoutManager(mManager);
 
         mAdapter = new FirebaseRecyclerAdapter<Pompe, PompeViewHolder>(
                 Pompe.class,
-        R.layout.item_pompe,
-        PompeViewHolder.class,
-        mDatabase
-                ){
+                R.layout.item_pompe,
+                PompeViewHolder.class,
+                mDatabase.child("Pompes").orderByChild("nom")
+        ) {
 
             @Override
             protected void populateViewHolder(PompeViewHolder viewHolder, Pompe pompe, int position) {
+
                 viewHolder.tv_nom_pompe.setText(pompe.getNom());
                 viewHolder.tv_superviseur.setText(pompe.getAdresse());
 
@@ -89,8 +86,18 @@ public class Liste_Pompe_Fragment extends Fragment {
             }
         };
 
+        mAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                mManager.scrollToPositionWithOffset(0, 0);
+            }
+        });
+
         mRecycler.setLayoutManager(mManager);
         mRecycler.setAdapter(mAdapter);
+
+        Log.e("List pompes", "Nb : " + mAdapter.getItemCount());
 
         setHasOptionsMenu(true);
 
@@ -105,7 +112,7 @@ public class Liste_Pompe_Fragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_add:
                 ListPompeListener listPompeListener = (ListPompeListener) getActivity();
                 listPompeListener.addPompe();
@@ -115,10 +122,9 @@ public class Liste_Pompe_Fragment extends Fragment {
     }
 
 
-    public interface ListPompeListener{
+    public interface ListPompeListener {
         public void addPompe();
     }
-
 
 
 }

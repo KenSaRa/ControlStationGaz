@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 superAdminActivity();
             else
                 finish();
+        }else if(requestCode == SUPER_ACT){
+            finish();
         }
     }
 

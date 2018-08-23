@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Employee_Frag;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_Pompe_fragement;
 import com.kensara.stationcarcontrol.Fragments.Administrateur.Create_User_Fragment;
@@ -22,8 +23,11 @@ import com.kensara.stationcarcontrol.Fragments.BienvenueFragment;
 public class SuperAdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         Liste_Pompe_Fragment.ListPompeListener,
+        Create_Pompe_fragement.CreatePompeListener,
         Create_User_Fragment.CreateUserListenner,
-        Create_Employee_Frag.CreateEmployeListener {
+        List_user_Fragment.ListUserListener,
+        Create_Employee_Frag.CreateEmployeListener,
+        List_employe_Frag.ListEmployeListener{
     //comment
 
     @Override
@@ -101,6 +105,10 @@ public class SuperAdminActivity extends AppCompatActivity
             case R.id.nav_list_produits:
 
                 break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                break;
             default:
                 fragment = new Liste_Pompe_Fragment();
                 break;
@@ -123,6 +131,12 @@ public class SuperAdminActivity extends AppCompatActivity
                 .commit();
 
     }
+    @Override
+    public void addUser() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new Create_User_Fragment())
+                .commit();
+    }
 
     @Override
     public void onCreateEmploye() {
@@ -132,9 +146,25 @@ public class SuperAdminActivity extends AppCompatActivity
     }
 
     @Override
+    public void addEmploye() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new Create_Employee_Frag())
+                .commit();
+    }
+
+    @Override
     public void addPompe() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_admin, (Fragment) new Create_Pompe_fragement())
                 .commit();
     }
+
+    @Override
+    public void onPompeCreated() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_admin, (Fragment) new Liste_Pompe_Fragment())
+                .commit();
+    }
+
+
 }

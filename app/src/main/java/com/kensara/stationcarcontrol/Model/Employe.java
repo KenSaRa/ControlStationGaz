@@ -7,7 +7,8 @@ public class Employe {
     String typeEmploi;
     String telephone;
     String age;
-    Pompe idPompe;
+
+    Pompe pompe;
 
     public String getNom() {
         return nom;
@@ -49,12 +50,13 @@ public class Employe {
         this.age = age;
     }
 
-    public Pompe getIdPompe() {
-        return idPompe;
+
+    public Pompe getPompe() {
+        return pompe;
     }
 
-    public void setIdPompe(Pompe idPompe) {
-        this.idPompe = idPompe;
+    public void setPompe(Pompe pompe) {
+        this.pompe = pompe;
     }
 
     @Override

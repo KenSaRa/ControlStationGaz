@@ -10,18 +10,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.kensara.stationcarcontrol.Model.Employe;
 import com.kensara.stationcarcontrol.Model.Pompe;
 import com.kensara.stationcarcontrol.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Create_Employee_Frag extends android.support.v4.app.Fragment {
@@ -31,12 +38,14 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
             , et_age
             , et_tel;
 
-    Spinner sp_type_emplole
-            , sp_pompe;
+
+    AutoCompleteTextView act_pompe;
 
     FirebaseDatabase database;
 
     String key;
+
+    Pompe selectedPompe;
 
     @Nullable
     @Override
@@ -52,8 +61,41 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
         et_tel = (EditText) view.findViewById(R.id.frag_emp_et_tel);
         et_age = (EditText) view.findViewById(R.id.frag_emp_et_age);
 
-        sp_pompe = (Spinner) view.findViewById(R.id.frag_emp_spi_pompe);
-        sp_type_emplole = (Spinner) view.findViewById(R.id.frag_emp_spi_type);
+        act_pompe = (AutoCompleteTextView) view.findViewById(R.id.frag_emp_act_pompe);
+        act_pompe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                selectedPompe = (Pompe) adapterView.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        final List<Pompe> pompes = new ArrayList<>();
+        final ArrayAdapter<Pompe> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, pompes);
+        act_pompe.setAdapter(adapter);
+
+        database.getReference("Pompes")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot d: dataSnapshot.getChildren()){
+                            Pompe p = d.getValue(Pompe.class);
+                            if (p != null){
+                                pompes.add(p);
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
         setHasOptionsMenu(true);
 
@@ -71,12 +113,9 @@ public class Create_Employee_Frag extends android.support.v4.app.Fragment {
 
         employe.setTelephone(et_tel.getText().toString());
 
-        employe.setTypeEmploi(sp_type_emplole.getSelectedItem().toString());
+        employe.setTypeEmploi("Employe");
 
-        Pompe pompe = new Pompe();
-        pompe.setNom(sp_pompe.getSelectedItem().toString());
-
-        employe.setIdPompe(pompe);
+        employe.setPompe(selectedPompe);
 
         DatabaseReference refEmploye = database.getReference("Employee");
 
