@@ -22,7 +22,7 @@ import com.kensara.stationcarcontrol.Model.User;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity
+public class   LoginActivity extends AppCompatActivity
 implements View.OnClickListener {
 
     private static final String TAG = "LoginActivity";
@@ -32,6 +32,7 @@ implements View.OnClickListener {
 
     private EditText edt_email, edt_password;
     private TextView tv_error;
+
     private Button btn_connect;
 
     @Override
